@@ -1,0 +1,30 @@
+{
+  "name": "teams-callerinfo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Teams-Calling-App: zeigt Infos zum Anrufer im aktiven PSTN-/Teams-Call. Läuft komplett im Teams-Client, kein Server nötig.",
+  "type": "module",
+  "scripts": {
+    "build": "tsx --env-file-if-exists=.env scripts/build.ts",
+    "dev": "tsx --env-file-if-exists=.env scripts/build.ts --serve",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "package:app": "node --env-file-if-exists=.env scripts/package-app.mjs",
+    "mock": "node scripts/mock-crm.mjs"
+  },
+  "dependencies": {
+    "@fluentui/svg-icons": "^1.1.346",
+    "@fluentui/tokens": "^1.0.0-alpha.24",
+    "@fluentui/web-components": "^3.2.1",
+    "@microsoft/teams-js": "^2.59.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "esbuild": "^0.28.2",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "zod": "^4.6.7"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

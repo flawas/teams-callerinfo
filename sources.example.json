@@ -1,0 +1,32 @@
+{
+  "sources": [
+    {
+      "id": "crm",
+      "name": "CRM",
+      "url": "https://crm.example.ch/api/contacts?phone={phoneE164}",
+      "auth": { "type": "none" },
+      "mapping": {
+        "resultPath": "data.items",
+        "titlePath": "displayName",
+        "subtitlePath": "company.name",
+        "fields": [
+          { "label": "E-Mail", "path": "email", "type": "email" },
+          { "label": "Offene Tickets", "path": "openTickets", "type": "badge" },
+          { "label": "Kunde seit", "path": "customerSince", "type": "date" }
+        ],
+        "linkTemplate": "https://crm.example.ch/kontakte/{{id}}",
+        "linkLabel": "Im CRM öffnen"
+      }
+    },
+    {
+      "id": "eigene-api",
+      "name": "Eigene API (Standardformat)",
+      "enabled": false,
+      "method": "POST",
+      "url": "https://api.example.ch/callerinfo",
+      "body": "{ \"phone\": \"{phoneE164}\", \"agent\": \"{userUpn}\" }",
+      "responseFormat": "standard",
+      "cacheMinutes": 60
+    }
+  ]
+}

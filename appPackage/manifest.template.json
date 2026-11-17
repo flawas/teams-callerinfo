@@ -1,0 +1,62 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.20/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.20",
+  "version": "{{VERSION}}",
+  "id": "{{TEAMS_APP_ID}}",
+  "developer": {
+    "name": "{{DEVELOPER_NAME}}",
+    "websiteUrl": "{{DEVELOPER_URL}}",
+    "privacyUrl": "{{DEVELOPER_URL}}",
+    "termsOfUseUrl": "{{DEVELOPER_URL}}"
+  },
+  "name": {
+    "short": "Caller Info",
+    "full": "Caller Info – Informationen zum Anrufer"
+  },
+  "description": {
+    "short": "Zeigt Infos zum Gegenüber direkt im Teams-Anruf.",
+    "full": "Caller Info zeigt während eines 1:1-Anrufs (PSTN oder Teams) Informationen zum Gegenüber an, z.B. aus dem Schweizer Telefonbuch (tel.search.ch) oder aus CRM, ERP oder Ticketsystem. Die Abfragen laufen direkt im Teams-Client."
+  },
+  "icons": {
+    "outline": "outline.png",
+    "color": "color.png"
+  },
+  "accentColor": "#5B5FC7",
+  "staticTabs": [
+    {
+      "entityId": "callerinfo",
+      "name": "Anrufer",
+      "contentUrl": "{{BASE_URL}}/caller.html",
+      "websiteUrl": "{{BASE_URL}}/caller.html",
+      "scopes": [
+        "personal"
+      ],
+      "context": [
+        "personalTab",
+        "meetingSidePanel"
+      ]
+    }
+  ],
+  "validDomains": [
+    "{{HOST}}"
+  ],
+  "showLoadingIndicator": true,
+  "webApplicationInfo": {
+    "id": "{{CLIENT_ID}}",
+    "resource": "https://RscPermission"
+  },
+  "authorization": {
+    "permissions": {
+      "resourceSpecific": [
+        {
+          "name": "OnlineMeeting.ReadBasic.Chat",
+          "type": "Delegated"
+        },
+        {
+          "name": "OnlineMeetingParticipant.Read.Chat",
+          "type": "Delegated"
+        }
+      ]
+    }
+  }
+}

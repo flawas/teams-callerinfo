@@ -1,0 +1,129 @@
+/*
+ * Caller Info – Styles nach dem Teams-App-Designsystem (Fluent 2).
+ * Alle Werte kommen aus den Fluent-Tokens, die setTheme() als CSS-Variablen setzt
+ * (teamsLightTheme / teamsDarkTheme / teamsHighContrastTheme): Farben, 4-px-Raster,
+ * Typografie-Rampe (Segoe UI), Radien und Schatten.
+ */
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+
+body {
+  font-family: var(--fontFamilyBase);
+  font-size: var(--fontSizeBase300);
+  line-height: var(--lineHeightBase300);
+  font-weight: var(--fontWeightRegular);
+  color: var(--colorNeutralForeground1);
+  background: var(--colorNeutralBackground3);
+  -webkit-font-smoothing: antialiased;
+}
+body.panel { background: var(--colorNeutralBackground2); }
+body.panel main { padding: var(--spacingVerticalM) var(--spacingHorizontalM); }
+
+/* Typografie-Rampe */
+h1 { font-size: var(--fontSizeBase500); line-height: var(--lineHeightBase500); font-weight: var(--fontWeightSemibold); margin: 0; }
+h2 { font-size: var(--fontSizeBase400); line-height: var(--lineHeightBase400); font-weight: var(--fontWeightSemibold); margin: 0; }
+h3 { font-size: var(--fontSizeBase300); line-height: var(--lineHeightBase300); font-weight: var(--fontWeightSemibold); margin: var(--spacingVerticalL) 0 var(--spacingVerticalS); }
+p { margin: var(--spacingVerticalXS) 0; }
+.caption { font-size: var(--fontSizeBase200); line-height: var(--lineHeightBase200); color: var(--colorNeutralForeground3); }
+code, pre, .mono { font-family: var(--fontFamilyMonospace); }
+code {
+  font-size: var(--fontSizeBase200);
+  background: var(--colorNeutralBackground3);
+  border-radius: var(--borderRadiusSmall);
+  padding: 0 var(--spacingHorizontalXXS);
+}
+pre {
+  font-size: var(--fontSizeBase200); line-height: var(--lineHeightBase200);
+  background: var(--colorNeutralBackground3); color: var(--colorNeutralForeground1);
+  border: var(--strokeWidthThin) solid var(--colorNeutralStroke2); border-radius: var(--borderRadiusMedium);
+  padding: var(--spacingVerticalS) var(--spacingHorizontalM);
+  overflow: auto; max-height: 360px; white-space: pre-wrap; word-break: break-word; margin: var(--spacingVerticalS) 0 0;
+}
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Fluent-Icons (20px) */
+.fi { display: inline-flex; width: 20px; height: 20px; flex: none; color: inherit; }
+.fi svg { width: 20px; height: 20px; fill: currentColor; }
+
+/* Fluent-Controls in der Breite */
+fluent-text-input { width: 100%; max-width: none; }
+fluent-message-bar { width: 100%; }
+
+/* ---------- Karten (Shape & Elevation) ---------- */
+.card {
+  background: var(--colorNeutralBackground1);
+  border-radius: var(--borderRadiusXLarge);
+  box-shadow: var(--shadow4);
+  padding: var(--spacingVerticalL) var(--spacingHorizontalL);
+  margin-bottom: var(--spacingVerticalL);
+}
+[data-theme="contrast"] .card { border: var(--strokeWidthThin) solid var(--colorNeutralStroke1); box-shadow: none; }
+.card-title { display: flex; align-items: center; gap: var(--spacingHorizontalS); margin-bottom: var(--spacingVerticalM); }
+.card-title .fi { color: var(--colorBrandForeground1); }
+
+/* ---------- Anrufer-Panel ---------- */
+.caller {
+  display: grid; grid-template-columns: auto 1fr auto; gap: var(--spacingHorizontalM); align-items: center;
+  margin-bottom: var(--spacingVerticalM);
+}
+.caller:empty { display: none; }
+.caller-icon {
+  width: 40px; height: 40px; border-radius: var(--borderRadiusCircular);
+  background: var(--colorBrandBackground2); color: var(--colorBrandForeground2);
+  display: grid; place-items: center;
+}
+.caller-number { font-size: var(--fontSizeBase500); line-height: var(--lineHeightBase500); font-weight: var(--fontWeightSemibold); }
+
+.source { padding: 0; overflow: hidden; margin-bottom: var(--spacingVerticalM); box-shadow: var(--shadow2); }
+.source-head {
+  display: flex; justify-content: space-between; align-items: center; gap: var(--spacingHorizontalS);
+  padding: var(--spacingVerticalS) var(--spacingHorizontalM);
+  border-bottom: var(--strokeWidthThin) solid var(--colorNeutralStroke2);
+}
+.source-name { display: flex; align-items: center; gap: var(--spacingHorizontalXS); font-size: var(--fontSizeBase200); font-weight: var(--fontWeightSemibold); color: var(--colorNeutralForeground2); }
+.source-name .fi { width: 16px; height: 16px; }
+.source-name .fi svg { width: 16px; height: 16px; }
+.source-msg { padding: var(--spacingVerticalS) var(--spacingHorizontalM); margin: 0; }
+.source-foot {
+  padding: var(--spacingVerticalXS) var(--spacingHorizontalM);
+  border-top: var(--strokeWidthThin) solid var(--colorNeutralStroke2);
+  background: var(--colorNeutralBackground2);
+}
+
+.match { padding: var(--spacingVerticalM) var(--spacingHorizontalM); }
+.match + .match { border-top: var(--strokeWidthThin) solid var(--colorNeutralStroke2); }
+.match-head { display: flex; align-items: center; gap: var(--spacingHorizontalM); }
+.match-id { min-width: 0; }
+.match-title { font-size: var(--fontSizeBase400); line-height: var(--lineHeightBase400); font-weight: var(--fontWeightSemibold); }
+.match-sub { font-size: var(--fontSizeBase200); line-height: var(--lineHeightBase200); color: var(--colorNeutralForeground3); }
+.fields { margin: var(--spacingVerticalM) 0 0; display: flex; flex-direction: column; gap: var(--spacingVerticalS); }
+.field-row { display: grid; grid-template-columns: 20px 1fr; column-gap: var(--spacingHorizontalS); }
+.field-row dt { display: contents; }
+.field-row dt .fi { grid-row: 1 / 3; grid-column: 1; color: var(--colorNeutralForeground3); margin-top: 2px; }
+.field-label { grid-column: 2; font-size: var(--fontSizeBase100); line-height: var(--lineHeightBase100); color: var(--colorNeutralForeground3); }
+.field-row dd { grid-column: 2; margin: 0; min-width: 0; word-break: break-word; }
+.field-value fluent-badge { margin-top: 2px; }
+.match-actions { margin-top: var(--spacingVerticalM); }
+
+.empty { text-align: center; padding: var(--spacingVerticalXXL) var(--spacingHorizontalS); }
+.empty-icon {
+  width: 48px; height: 48px; margin: 0 auto var(--spacingVerticalM); border-radius: var(--borderRadiusCircular);
+  background: var(--colorNeutralBackground1); box-shadow: var(--shadow4); color: var(--colorBrandForeground1);
+  display: grid; place-items: center;
+}
+.empty-title { font-size: var(--fontSizeBase400); line-height: var(--lineHeightBase400); font-weight: var(--fontWeightSemibold); margin-bottom: var(--spacingVerticalXS); }
+
+.manual { margin-top: var(--spacingVerticalM); }
+.manual summary, .debug summary { cursor: pointer; color: var(--colorNeutralForeground2); font-size: var(--fontSizeBase200); }
+.manual summary:focus-visible, .debug summary:focus-visible { outline: var(--strokeWidthThick) solid var(--colorStrokeFocus2); border-radius: var(--borderRadiusSmall); }
+.row { display: flex; gap: var(--spacingHorizontalS); align-items: center; }
+.row > fluent-text-input { flex: 1; min-width: 0; }
+.manual .row { margin-top: var(--spacingVerticalS); }
+.debug { margin-top: var(--spacingVerticalM); }
+
+.loading { display: flex; align-items: center; gap: var(--spacingHorizontalS); color: var(--colorNeutralForeground3); padding: var(--spacingVerticalL) 0; }
+
+/* Kleine Buttons: Fluent-Icongrösse 16px */
+fluent-button[size="small"] .fi, fluent-anchor-button[size="small"] .fi,
+fluent-button[size="small"] .fi svg, fluent-anchor-button[size="small"] .fi svg { width: 16px; height: 16px; }
